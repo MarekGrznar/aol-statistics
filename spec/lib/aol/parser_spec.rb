@@ -12,7 +12,7 @@ describe Aol::Parser do
       expect(queries[0]).to eql(
         user_id: 142,
         query: 'rentdirect.com',
-        time: Time.parse('2006-03-01 07:17:12'),
+        searched_at: Time.parse('2006-03-01 07:17:12'),
         clicked_url: nil,
         clicked_url_position: nil
       )
@@ -20,7 +20,7 @@ describe Aol::Parser do
       expect(queries[6]).to eql(
         user_id: 142,
         query: 'westchester.gov',
-        time: Time.parse('2006-03-20 03:55:57'),
+        searched_at: Time.parse('2006-03-20 03:55:57'),
         clicked_url: 'http://www.westchestergov.com',
         clicked_url_position: 1
       )
@@ -28,9 +28,9 @@ describe Aol::Parser do
       expect(queries[-2]).to eql(
         user_id: 217,
         query: 'p; .; p;\' p; \' ;\' ;\';',
-        time: Time.parse('2006-03-09 12:09:27'),
-        clicked_url: 'http://www.westchestergov.com',
-        clicked_url_position: 1
+        searched_at: Time.parse('2006-03-09 12:09:27'),
+        clicked_url: nil,
+        clicked_url_position: nil
       )
     end
   end
