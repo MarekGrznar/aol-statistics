@@ -11,15 +11,16 @@ require 'aol/search'
 require 'aol/results'
 
 module Aol
-  def self.import
+  def self.import_from_directory(directory)
     index = Aol::Index.new
 
     index.delete
     index.create
 
-    dir = File.join(File.dirname(File.absolute_path(__FILE__)), '..', 'data')
+    require 'pry'; binding.pry
 
-    Dir["#{dir}/**/*.txt"].each do |path|
+
+    Dir["#{directory}/**/*.txt"].each do |path|
       index.import_from(path)
     end
   end

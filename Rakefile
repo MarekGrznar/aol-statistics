@@ -8,7 +8,9 @@ require 'aol'
 namespace :aol do
   desc 'Import Aol Data'
   task :import do
-    Aol.import
+    directory = File.join(File.dirname(File.expand_path(__FILE__)), 'data')
+
+    Aol.import_from_directory(directory)
   end
 
   desc 'Statistics'
