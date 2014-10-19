@@ -7,17 +7,13 @@ module Aol
     end
 
     def perform
-      params = index.analyzers.inject(Hash.new) do |hash, analyzer|
-        hash[analyzer.name] = {
-          terms: {
-            field: "query.#{analyzer.name}"
-          }
-        }
+     query = index.analyzers.inject(Hash.new) do |hash, analyzer|
+        hash.deep_merge!(analyzer.search)
 
         hash
       end
 
-      response = index.client.search index: index.name, body: { facets: params }
+      response = index.client.search index: index.name, body: query
 
       Results.new(response)
     end

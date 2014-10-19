@@ -30,6 +30,19 @@ module Aol
           }
         }
       end
+
+      def self.search
+        {
+          facets: {
+            domain: {
+              terms: {
+                field: 'query.domain',
+                size: 2^31
+              }
+            }
+          }
+        }
+      end
     end
   end
 end

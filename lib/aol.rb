@@ -17,9 +17,6 @@ module Aol
     index.delete
     index.create
 
-    require 'pry'; binding.pry
-
-
     Dir["#{directory}/**/*.txt"].each do |path|
       index.import_from(path)
     end

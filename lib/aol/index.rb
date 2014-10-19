@@ -53,6 +53,8 @@ module Aol
       queries.each do |query|
         client.index index: name, type: :query, body: { query: query[:query] }
       end
+
+      flush
     end
 
     def exists?

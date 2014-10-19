@@ -8,13 +8,13 @@ module Aol
 
     def facets
       @facets ||= @response['facets'].inject(Hash.new) do |facets, (name, facet)|
-        facets[name] = facet['terms'].inject(Hash.new) do |hash, value|
-        hash[value['term']] = value['count']
+        facets[name.to_sym] = facet['terms'].inject(Hash.new) do |hash, value|
+          hash[value['term']] = value['count']
 
-        hash
-      end
+          hash
+        end
 
-      facets
+        facets
       end
     end
   end

@@ -22,6 +22,19 @@ module Aol
           }
         }
       end
+
+      def self.search
+        {
+          facets: {
+            lowercase: {
+              terms: {
+                field: 'query.lowercase',
+                size: 2^31
+              }
+            }
+          }
+        }
+      end
     end
   end
 end
