@@ -1,6 +1,6 @@
 module Aol
   class Parser
-    def self.parse(data, &block)
+    def self.parse(data)
       queries = []
 
       CSV.parse(data, headers: true, col_sep: "\t") do |row|
