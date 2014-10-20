@@ -37,7 +37,7 @@ module Aol
             domain: {
               terms: {
                 field: 'query.domain',
-                size: 2^31
+                size: 2**31 - 1
               }
             }
           }

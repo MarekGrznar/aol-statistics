@@ -41,7 +41,9 @@ describe Aol do
           "elaorg"=>1,
           "collegeuclau"=>1,
           "bonsaiffg"=>1,
-          "attornylesliem"=>1
+          "attornylesliem"=>1,
+          "ameriprisem" => 1,
+          "appearance" => 1
         }
       )
 
@@ -75,7 +77,9 @@ describe Aol do
           "merit"=>1,
           "loislaw.com"=>1,
           "frankmellace.com"=>1,
-          "attornyleslie.com"=>1
+          "attornyleslie.com"=>1,
+          "ameriprise.com" => 1,
+          "appearance" => 1
         }
       )
     end

@@ -29,7 +29,7 @@ module Aol
             lowercase: {
               terms: {
                 field: 'query.lowercase',
-                size: 2^31
+                size: 2**31 - 1
               }
             }
           }
