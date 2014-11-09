@@ -1,0 +1,10 @@
+# started 2014-07-25T21:33:17Z
+<http://dbpedia.org/resource/Category:Futurama> <http://www.w3.org/2000/01/rdf-schema#label> "Futurama"@en .
+<http://dbpedia.org/resource/Category:World_War_II> <http://www.w3.org/2000/01/rdf-schema#label> "World War II"@en .
+<http://dbpedia.org/resource/Category:Programming_languages> <http://www.w3.org/2000/01/rdf-schema#label> "Programming languages"@en .
+<http://dbpedia.org/resource/Category:Professional_wrestling> <http://www.w3.org/2000/01/rdf-schema#label> "Professional wrestling"@en .
+<http://dbpedia.org/resource/Category:Algebra> <http://www.w3.org/2000/01/rdf-schema#label> "Algebra"@en .
+<http://dbpedia.org/resource/Category:Anime> <http://www.w3.org/2000/01/rdf-schema#label> "Anime"@en .
+<http://dbpedia.org/resource/Category:Abstract_algebra> <http://www.w3.org/2000/01/rdf-schema#label> "Abstract algebra"@en .
+<http://dbpedia.org/resource/Category:Mathematics> <http://www.w3.org/2000/01/rdf-schema#label> "Mathematics"@en .
+<http://dbpedia.org/resource/Category:Linear_algebra> <http://www.w3.org/2000/01/rdf-schema#label> "Linear algebra"@en .
