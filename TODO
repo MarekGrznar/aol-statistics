@@ -1,0 +1,3 @@
+* keyword tokenizer
+* stemming
+* category labels ttl from dbpedia (lowercase => match), gazeteer
