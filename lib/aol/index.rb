@@ -1,9 +1,11 @@
 module Aol
-  class Index
-    attr_accessor :client, :name, :settings, :mappings, :analyzers
+  class Index < Es::Index
+    def name
+      @name ||= :aol
+    end
 
-    def client
-      @client ||= Elasticsearch::Client.new
+    def type
+      @type ||= :query
     end
 
     def analyzers
@@ -11,18 +13,6 @@ module Aol
         Aol::Analyzers::Lowercase,
         Aol::Analyzers::Domain
       ]
-    end
-
-    def name
-      @name ||= :aol
-    end
-
-    def settings
-      @settings ||= analyzers.inject(Hash.new) do |hash, analyzer|
-        hash.deep_merge!(analyzer.settings)
-
-        hash
-      end
     end
 
     def mappings
@@ -50,34 +40,16 @@ module Aol
 
       queries = Aol::Parser.parse(File.new(path).read, enumerate: true)
 
-      queries.each_slice(1000) do |array|
+      queries.each_slice(10000) do |array|
         client.bulk body: array.map { |query|
           [
-            { index: { _index: name, _type: :query }},
+            { index: { _index: name, _type: type }},
             { query: query[:query] }
           ]
         }.flatten
       end
 
       flush
-    end
-
-    def exists?
-      client.indices.exists index: name
-    end
-
-    def create
-      client.indices.create index: name, type: :query, body: { settings: settings, mappings: mappings }
-
-      flush
-    end
-
-    def delete
-      client.indices.delete index: name if exists?
-    end
-
-    def flush
-      client.indices.flush index: name
     end
   end
 end
