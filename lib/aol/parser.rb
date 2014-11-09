@@ -1,6 +1,6 @@
 module Aol
   class Parser
-    def self.parse(data, enumerate: false)
+    def self.parse(data, enumerate: false, **options)
       queries = []
       enumerator = Enumerator.new(data)
 

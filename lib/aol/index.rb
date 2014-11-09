@@ -3,7 +3,7 @@ module Aol
     attr_accessor :client, :name, :settings, :mappings, :analyzers
 
     def client
-      @client ||= Elasticsearch::Client.new(log: true)
+      @client ||= Elasticsearch::Client.new
     end
 
     def analyzers
@@ -48,9 +48,9 @@ module Aol
       delete
       create
 
-      queries = Aol::Parser.parse(File.new(path).read)
+      queries = Aol::Parser.parse(File.new(path).read, enumerate: true)
 
-      queries.each_slice(100) do |array|
+      queries.each_slice(1000) do |array|
         client.bulk body: array.map { |query|
           [
             { index: { _index: name, _type: :query }},
