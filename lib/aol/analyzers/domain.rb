@@ -20,10 +20,11 @@ module Aol
               }
             },
 
+            # TODO keyword tokenizer
             analyzer: {
               domain: {
                 type: :custom,
-                tokenizer: :standard,
+                tokenizer: :keyword,
                 filter: [:lowercase, :domain_filter]
               }
             }

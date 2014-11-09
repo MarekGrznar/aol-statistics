@@ -50,8 +50,13 @@ module Aol
 
       queries = Aol::Parser.parse(File.new(path).read)
 
-      queries.each do |query|
-        client.index index: name, type: :query, body: { query: query[:query] }
+      queries.each_slice(100) do |array|
+        client.bulk body: array.map { |query|
+          [
+            { index: { _index: name, _type: :query }},
+            { query: query[:query] }
+          ]
+        }.flatten
       end
 
       flush

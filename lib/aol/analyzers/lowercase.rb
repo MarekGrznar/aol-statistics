@@ -15,7 +15,7 @@ module Aol
             analyzer: {
               lowercase: {
                 type: :custom,
-                tokenizer: :standard,
+                tokenizer: :keyword,
                 filter: [:lowercase]
               }
             }

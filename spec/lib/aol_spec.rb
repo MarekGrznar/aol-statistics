@@ -15,13 +15,11 @@ describe Aol do
         {
           "broadwayrag"=>3,
           "staplem"=>2,
-          "p"=>2,
+          "p; .; p;' p; ' ;' ;';"=>2,
           "newyorklawyersitem"=>2,
           "lottery"=>2,
           "dfdf"=>2,
-          "ad2d"=>2,
-          "530"=>2,
-          "207"=>2,
+          "207 ad2d 530"=>2,
           "whitepagesm"=>1,
           "westchesterv"=>1,
           "verag"=>1,
@@ -31,19 +29,17 @@ describe Aol do
           "susheme"=>1,
           "spacemhttp"=>1,
           "rentdirectm"=>1,
-          "release"=>1,
           "rapnym"=>1,
           "prescriptionfortimem"=>1,
           "mizunom"=>1,
-          "merit"=>1,
+          "merit release appearance"=>1,
           "loislawm"=>1,
           "frankmellacem"=>1,
           "elaorg"=>1,
           "collegeuclau"=>1,
           "bonsaiffg"=>1,
           "attornylesliem"=>1,
-          "ameriprisem" => 1,
-          "appearance" => 1
+          "ameriprisem" => 1
         }
       )
 
@@ -52,12 +48,10 @@ describe Aol do
           "broadway.vera.org"=>3,
           "www.newyorklawyersite.com"=>2,
           "staple.com"=>2,
-          "p"=>2,
+          "p; .; p;' p; ' ;' ;';"=>2,
           "lottery"=>2,
           "dfdf"=>2,
-          "ad2d"=>2,
-          "530"=>2,
-          "207"=>2,
+          "207 ad2d 530"=>2,
           "www.prescriptionfortime.com"=>1,
           "www.elaorg"=>1,
           "www.collegeucla.edu"=>1,
@@ -71,15 +65,13 @@ describe Aol do
           "susheme"=>1,
           "space.comhttp"=>1,
           "rentdirect.com"=>1,
-          "release"=>1,
           "rapny.com"=>1,
           "mizuno.com"=>1,
-          "merit"=>1,
+          "merit release appearance"=>1,
           "loislaw.com"=>1,
           "frankmellace.com"=>1,
           "attornyleslie.com"=>1,
-          "ameriprise.com" => 1,
-          "appearance" => 1
+          "ameriprise.com" => 1
         }
       )
     end
