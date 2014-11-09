@@ -17,13 +17,6 @@ namespace :aol do
     Aol.import_from_directory(directory)
   end
 
-  desc 'Statistics'
-  task :statistics do
-    results = Aol.statistics
-
-    results.facets
-  end
-
   desc 'Dump statistics'
   task :dump_statistics do
     results = Aol.statistics
@@ -35,5 +28,14 @@ namespace :aol do
         puts "\t#{value}\t#{count}"
       end
     end
+  end
+end
+
+namespace :dbpedia do
+  desc 'Import dbpedia categoris'
+  task :import do
+    index = Dbpedia::Index.new
+
+    index.import_from(File.join(root, 'data/category_labels_en.ttl'))
   end
 end

@@ -18,17 +18,24 @@ module Aol
 
       def initialize(data)
         @data = data
+        @dbpedia = Dbpedia::Index.new
       end
 
       def each
         CSV.parse(@data, headers: true, col_sep: "\t") do |row|
-          yield(
+          query = {
             user_id: row['AnonID'].to_i,
             query: row['Query'].strip.presence,
             searched_at: (Time.parse(row['QueryTime']) rescue nil),
             clicked_url: row['ClickURL'].try(:strip).presence,
             clicked_url_position: row['ItemRank'] ? row['ItemRank'].to_i : nil
-          )
+          }
+
+          categories = @dbpedia.search(query[:query])['hits']['hits']
+
+          query[:dbpedia_category] = categories.empty? ? :none : categories[0...1].map { |e| e['_source']['category'] }
+
+          yield(query)
         end
       end
     end

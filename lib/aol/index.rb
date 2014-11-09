@@ -11,7 +11,9 @@ module Aol
     def analyzers
       @analyzers ||= [
         Aol::Analyzers::Lowercase,
-        Aol::Analyzers::Domain
+        Aol::Analyzers::Domain,
+        Aol::Analyzers::Stemmer,
+        Aol::Analyzers::DbpediaCategory
       ]
     end
 
@@ -28,6 +30,10 @@ module Aol
             query: {
               type: :multi_field,
               fields: fields
+            },
+
+            dbpedia_category: {
+              type: :string, index: :not_analyzed
             }
           }
         }
@@ -40,11 +46,11 @@ module Aol
 
       queries = Aol::Parser.parse(File.new(path).read, enumerate: true)
 
-      queries.each_slice(10000) do |array|
+      queries.each_slice(1000) do |array|
         client.bulk body: array.map { |query|
           [
             { index: { _index: name, _type: type }},
-            { query: query[:query] }
+            { query: query[:query], dbpedia_category: query[:dbpedia_category] }
           ]
         }.flatten
       end
