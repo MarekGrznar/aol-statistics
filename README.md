@@ -36,6 +36,24 @@ Run specs (make sure Elasticserch is running)
 rspec spec
 ```
 
+## Statistics
+
+Import DBpedia.
+
+```
+rake dbpedia:import
+```
+
+Import AOL.
+```
+rake aol:import
+```
+
+Show statistics
+```
+rake aol:dump_statistics
+```
+
 ## Contributing
 
 1. Fork it
