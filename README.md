@@ -18,18 +18,21 @@ git clone https://github.com/smolnar/aol-statistics.git
 cd aol-statistics
 ```
 
-Create data directory and download AOL dataset along with DBpedia Wiki titles.
-```
-mkdir data
-cd data
-mkdir aol
-```
-Move AOL dataset files to `data/aol` and `labels_en.ttl` to `data`.
+Download AOL dataset along with DBpedia Wiki titles, samples are included.
+
+Move AOL dataset files to `data/aol` and `labels_en.ttl` `redirects_en.ttl` to `data/dbpedia`.
 
 Install gems.
 ```
 bundle install
 ```
+
+Run setup.
+```
+rake setup
+```
+
+**Note**: This might take a while, since it serializes redirects to JSON.
 
 Run specs (make sure Elasticserch is running)
 ```
