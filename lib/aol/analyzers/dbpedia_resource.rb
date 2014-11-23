@@ -1,8 +1,8 @@
 module Aol
   module Analyzers
-    class DbpediaCategory
+    class DbpediaResource
       def self.name
-        :dbpedia_category
+        :dbpedia_resource
       end
 
       def self.mapping
@@ -16,9 +16,9 @@ module Aol
       def self.search
         {
           facets: {
-            dbpedia_category: {
+            dbpedia_resource: {
               terms: {
-                field: 'dbpedia_category',
+                field: 'dbpedia_resource',
                 size: 2**31 - 1
               }
             }

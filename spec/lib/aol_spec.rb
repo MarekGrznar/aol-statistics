@@ -9,7 +9,7 @@ describe Aol do
 
       facets = Aol.statistics.facets
 
-      expect(facets.keys.sort).to eql([:domain, :lowercase].sort)
+      expect(facets.keys.sort).to eql([:domain, :lowercase, :dbpedia_resource, :stemmer].sort)
 
       expect(facets[:domain]).to eql(
         {

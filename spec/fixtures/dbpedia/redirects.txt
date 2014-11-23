@@ -1,0 +1,10 @@
+# started 2014-07-25T21:33:17Z
+<http://dbpedia.org/resource/AccessibleComputing> <http://dbpedia.org/ontology/wikiPageRedirects> <http://dbpedia.org/resource/Computer_accessibility> .
+<http://dbpedia.org/resource/AfghanistanHistory> <http://dbpedia.org/ontology/wikiPageRedirects> <http://dbpedia.org/resource/History_of_Afghanistan> .
+<http://dbpedia.org/resource/AfghanistanPeople> <http://dbpedia.org/ontology/wikiPageRedirects> <http://dbpedia.org/resource/Demography_of_Afghanistan> .
+<http://dbpedia.org/resource/AfghanistanGeography> <http://dbpedia.org/ontology/wikiPageRedirects> <http://dbpedia.org/resource/Geography_of_Afghanistan> .
+<http://dbpedia.org/resource/AfghanistanCommunications> <http://dbpedia.org/ontology/wikiPageRedirects> <http://dbpedia.org/resource/Communications_in_Afghanistan> .
+<http://dbpedia.org/resource/AfghanistanTransportations> <http://dbpedia.org/ontology/wikiPageRedirects> <http://dbpedia.org/resource/Transport_in_Afghanistan> .
+<http://dbpedia.org/resource/AfghanistanMilitary> <http://dbpedia.org/ontology/wikiPageRedirects> <http://dbpedia.org/resource/Afghan_Armed_Forces> .
+<http://dbpedia.org/resource/AfghanistanTransnationalIssues> <http://dbpedia.org/ontology/wikiPageRedirects> <http://dbpedia.org/resource/Foreign_relations_of_Afghanistan> .
+<http://dbpedia.org/resource/AssistiveTechnology> <http://dbpedia.org/ontology/wikiPageRedirects> <http://dbpedia.org/resource/Assistive_technology> .

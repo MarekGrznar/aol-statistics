@@ -5,14 +5,14 @@ module Dbpedia
     end
 
     def type
-      @type ||= :category
+      @type ||= :label
     end
 
     def settings
       @settings ||= {
         analysis: {
           analyzer: {
-            dbpedia_category_analyzer: {
+            dbpedia_label_analyzer: {
               type: :custom,
               tokenizer: :standard,
               filter: [:lowercase]
@@ -24,9 +24,10 @@ module Dbpedia
 
     def mappings
       @mappings ||= {
-        category: {
+        type => {
           properties: {
-            category: { type: :string, analyzer: :dbpedia_category_analyzer }
+            title: { type: :string, analyzer: :dbpedia_label_analyzer },
+            resource: { type: :string, index: :not_analyzed }
           }
         }
       }
@@ -39,7 +40,7 @@ module Dbpedia
           query: {
             query_string: {
               query: query.gsub(/(\+|\-|&&|\||\||\(|\)|\{|\}|\[|\]|\^|~|\!|\\|\/|:)/) { |m| "\\#{m}" },
-              default_field: :category,
+              default_field: :title,
               default_operator: :and,
               fuzziness: 'AUTO'
             }
@@ -52,13 +53,13 @@ module Dbpedia
       delete
       create
 
-      categories = Dbpedia::Parser.parse(File.new(path).read)
+      labels = Dbpedia::Parser.parse(File.new(path).read)
 
-      categories.each_slice(10000) do |array|
-        client.bulk body: array.map { |category|
+      labels.each_slice(10000) do |array|
+        client.bulk body: array.map { |label|
           [
             { index: { _index: name, _type: type }},
-            { type => category }
+            label
           ]
         }.flatten
       end

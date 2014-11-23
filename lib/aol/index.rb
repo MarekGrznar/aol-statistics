@@ -13,7 +13,7 @@ module Aol
         Aol::Analyzers::Lowercase,
         Aol::Analyzers::Domain,
         Aol::Analyzers::Stemmer,
-        Aol::Analyzers::DbpediaCategory
+        Aol::Analyzers::DbpediaResource
       ]
     end
 
@@ -32,7 +32,7 @@ module Aol
               fields: fields
             },
 
-            dbpedia_category: {
+            dbpedia_resource: {
               type: :string, index: :not_analyzed
             }
           }

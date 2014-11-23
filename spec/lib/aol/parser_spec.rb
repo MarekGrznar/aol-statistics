@@ -15,7 +15,7 @@ describe Aol::Parser do
         searched_at: Time.parse('2006-03-01 07:17:12'),
         clicked_url: nil,
         clicked_url_position: nil,
-        dbpedia_category: :none
+        dbpedia_resource: :none
       )
 
       expect(queries[6]).to eql(
@@ -24,7 +24,7 @@ describe Aol::Parser do
         searched_at: Time.parse('2006-03-20 03:55:57'),
         clicked_url: 'http://www.westchestergov.com',
         clicked_url_position: 1,
-        dbpedia_category: :none
+        dbpedia_resource: :none
       )
 
       expect(queries[-2]).to eql(
@@ -33,7 +33,7 @@ describe Aol::Parser do
         searched_at: Time.parse('2006-03-09 12:09:27'),
         clicked_url: nil,
         clicked_url_position: nil,
-        dbpedia_category: :none
+        dbpedia_resource: :none
       )
     end
 
@@ -41,7 +41,7 @@ describe Aol::Parser do
       data = fixture('aol/sample.txt')
       dbpedia = double(:dbpedia, search: { 'hits' => { 'hits' => [] } })
 
-      allow(dbpedia).to receive(:search).with('rentdirect.com').and_return({ 'hits' => { 'hits' => [{'_source' => { 'category' => 'Rentdirect.com Rentals' }}]}})
+      allow(dbpedia).to receive(:search).with('rentdirect.com').and_return({ 'hits' => { 'hits' => [{'_source' => { 'title' => 'Rentdirect.com Rentals', 'resource' => 'dbpedia/rentdirect' }}]}})
       allow(Dbpedia::Index).to receive(:new).and_return(dbpedia)
 
       queries = described_class.parse(data)
@@ -54,7 +54,7 @@ describe Aol::Parser do
         searched_at: Time.parse('2006-03-01 07:17:12'),
         clicked_url: nil,
         clicked_url_position: nil,
-        dbpedia_category: ['Rentdirect.com Rentals']
+        dbpedia_resource: ['dbpedia/rentdirect']
       )
     end
   end

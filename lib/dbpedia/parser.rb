@@ -1,17 +1,33 @@
 module Dbpedia
   class Parser
     def self.parse(text)
-      categories = []
+      labels = []
 
       text.split("\n").each do |line|
         next if line[0] == '#'
 
-        _, category = *line.match(/.+"(.+)"@en/)
+        _,  resource, title = *line.match(/^<([^>]+)>.+"(.+)"@en/)
 
-        categories << category
+        resource = ResourceRedirect.lookup(resource) || resource
+
+        labels << { title: title, resource: resource }
       end
 
-      categories
+      labels
+    end
+
+    class ResourceRedirect
+      def self.resources
+        @resources ||= parse
+      end
+
+      def self.lookup(resource)
+        resources[resource]
+      end
+
+      def self.parse
+        Oj.load(File.new(File.join(File.dirname(File.expand_path(__FILE__)), '../../data/dbpedia/redirects.json')).read)
+      end
     end
   end
 end

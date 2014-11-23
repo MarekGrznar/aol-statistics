@@ -31,9 +31,9 @@ module Aol
             clicked_url_position: row['ItemRank'] ? row['ItemRank'].to_i : nil
           }
 
-          categories = @dbpedia.search(query[:query])['hits']['hits']
+          labels = @dbpedia.search(query[:query])['hits']['hits']
 
-          query[:dbpedia_category] = categories.empty? ? :none : categories[0...1].map { |e| e['_source']['category'] }
+          query[:dbpedia_resource] = labels.empty? ? :none : labels[0...1].map { |e| e['_source']['resource'] }
 
           yield(query)
         end
