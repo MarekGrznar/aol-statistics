@@ -1,0 +1,10 @@
+AnonID	Query	QueryTime	ItemRank	ClickURL
+142	rentdirect.com	2006-03-01 07:17:12		
+142	www.prescriptionfortime.com	2006-03-12 12:31:06		
+142	staple.com	2006-03-17 21:19:29		
+142	staple.com	2006-03-17 21:19:45		
+142	www.newyorklawyersite.com	2006-03-18 08:02:58		
+142	www.newyorklawyersite.com	2006-03-18 08:03:09		
+142	westchester.gov	2006-03-20 03:55:57	1	http://www.westchestergov.com
+142	space.comhttp	2006-03-24 20:51:24		
+142	dfdf	2006-03-24 22:23:07		
