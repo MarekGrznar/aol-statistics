@@ -50,7 +50,7 @@ module Aol
         client.bulk body: array.map { |query|
           [
             { index: { _index: name, _type: type }},
-            { query: query[:query], dbpedia_category: query[:dbpedia_category] }
+            { query: query[:query], dbpedia_resource: query[:dbpedia_resource] }
           ]
         }.flatten
       end
